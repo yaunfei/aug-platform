@@ -1,0 +1,121 @@
+{
+  "$defs": {
+    "MappingItem": {
+      "additionalProperties": false,
+      "description": "单条映射规则：from（JsonPath 取值）→ to（目标路径）→ type（类型转换）。",
+      "properties": {
+        "from": {
+          "anyOf": [
+            { "type": "string" },
+            { "type": "null" }
+          ],
+          "default": null,
+          "description": "源字段 JsonPath，根对象为记录信封 {id, schemaVersion, createdAt, updatedAt, createdBy, data:{…}}；const 类型不需要 from"
+        },
+        "to": {
+          "type": "string",
+          "description": "目标字段点分路径（如 buyer.name 自动建嵌套对象）"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["string", "long", "double", "decimal", "boolean", "datetime", "enum", "array", "const"],
+          "description": "值类型"
+        },
+        "enumMap": {
+          "anyOf": [
+            {
+              "type": "object",
+              "additionalProperties": { "type": "string" }
+            },
+            { "type": "null" }
+          ],
+          "default": null,
+          "description": "enum 类型必填：{key: 展示文本}"
+        },
+        "enumDefault": {
+          "anyOf": [
+            { "type": "string" },
+            { "type": "null" }
+          ],
+          "default": null,
+          "description": "enumMap 未命中时的默认值"
+        },
+        "scale": {
+          "anyOf": [
+            { "type": "integer", "minimum": 0, "maximum": 10 },
+            { "type": "null" }
+          ],
+          "default": null,
+          "description": "decimal 类型的小数位数"
+        },
+        "format": {
+          "anyOf": [
+            { "type": "string" },
+            { "type": "null" }
+          ],
+          "default": null,
+          "description": "datetime 类型的输出格式（默认保持 ISO-8601）"
+        },
+        "value": {
+          "description": "const 类型的固定值",
+          "anyOf": [
+            { "type": "string" },
+            { "type": "integer" },
+            { "type": "number" },
+            { "type": "boolean" },
+            { "type": "null" }
+          ]
+        },
+        "itemMappings": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": { "$ref": "#/$defs/MappingItem" },
+              "minItems": 1
+            },
+            { "type": "null" }
+          ],
+          "default": null,
+          "description": "array 类型的子元素映射规则（from 相对当前 item；递归深度上限 2 层）"
+        }
+      },
+      "required": ["to", "type"],
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "View Mapping DSL：定义下游视图的数据转换规则。{viewKey, title, formKey, description?, mappings}",
+  "properties": {
+    "viewKey": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]{1,63}$",
+      "description": "视图标识，小写字母开头，仅字母/数字/下划线，2-64 字符"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "formKey": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]{1,63}$",
+      "description": "源表单标识"
+    },
+    "description": {
+      "anyOf": [
+        { "type": "string" },
+        { "type": "null" }
+      ],
+      "default": null
+    },
+    "mappings": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/MappingItem" },
+      "minItems": 1,
+      "maxItems": 100
+    }
+  },
+  "required": ["viewKey", "title", "formKey", "mappings"],
+  "title": "ViewMapping",
+  "type": "object"
+}

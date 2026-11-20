@@ -1,0 +1,32 @@
+{
+  "name": "case02_all_types",
+  "description": "全类型转换：string/long/double/decimal/boolean/datetime",
+  "config": {
+    "viewKey": "test_types",
+    "title": "类型测试",
+    "formKey": "order_form",
+    "mappings": [
+      { "from": "$.data.title", "to": "title", "type": "string" },
+      { "from": "$.data.count", "to": "count", "type": "long" },
+      { "from": "$.data.score", "to": "score", "type": "double" },
+      { "from": "$.data.price", "to": "price", "type": "decimal", "scale": 2 },
+      { "from": "$.data.active", "to": "active", "type": "boolean" },
+      { "from": "$.createdAt", "to": "createTime", "type": "datetime", "format": "yyyy-MM-dd HH:mm:ss" }
+    ]
+  },
+  "inputRecord": {
+    "id": 1,
+    "schemaVersion": 1,
+    "createdAt": "2026-07-01T12:00:00Z",
+    "updatedAt": "2026-07-01T12:00:00Z",
+    "data": { "title": "测试", "count": 42, "score": 3.14, "price": 99.987, "active": true }
+  },
+  "expectedOutput": {
+    "title": "测试",
+    "count": 42,
+    "score": 3.14,
+    "price": 99.99,
+    "active": true,
+    "createTime": "2026-07-01 12:00:00"
+  }
+}

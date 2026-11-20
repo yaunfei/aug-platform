@@ -1,0 +1,33 @@
+{
+  "name": "case06_array_item_mapping",
+  "description": "formList 数组 + itemMappings 逐项映射",
+  "config": {
+    "viewKey": "test_array",
+    "title": "数组测试",
+    "formKey": "order_form",
+    "mappings": [
+      { "from": "$.data.contacts", "to": "contacts", "type": "array",
+        "itemMappings": [
+          { "from": "$.name", "to": "contactName", "type": "string" },
+          { "from": "$.phone", "to": "mobile", "type": "string" }
+        ]
+      }
+    ]
+  },
+  "inputRecord": {
+    "id": 1,
+    "schemaVersion": 1,
+    "createdAt": "2026-07-01T12:00:00Z",
+    "updatedAt": "2026-07-01T12:00:00Z",
+    "data": { "contacts": [
+      { "name": "张三", "phone": "13800000001" },
+      { "name": "李四", "phone": "13800000002" }
+    ]}
+  },
+  "expectedOutput": {
+    "contacts": [
+      { "contactName": "张三", "mobile": "13800000001" },
+      { "contactName": "李四", "mobile": "13800000002" }
+    ]
+  }
+}

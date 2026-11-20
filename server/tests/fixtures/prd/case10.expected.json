@@ -1,0 +1,42 @@
+{
+  "formKey": "customer_profile",
+  "title": "客户档案表",
+  "columns": [
+    {
+      "dataIndex": "customer_name",
+      "title": "客户名称",
+      "valueType": "text",
+      "formItemProps": {
+        "rules": [
+          {
+            "required": true,
+            "message": "请输入客户名称"
+          }
+        ]
+      }
+    },
+    {
+      "dataIndex": "grade",
+      "title": "客户等级",
+      "valueType": "select",
+      "valueEnum": {
+        "vip": {
+          "text": "VIP"
+        },
+        "normal": {
+          "text": "普通"
+        }
+      }
+    },
+    {
+      "dataIndex": "created_date",
+      "title": "建档日期",
+      "valueType": "date"
+    },
+    {
+      "dataIndex": "active",
+      "title": "是否有效",
+      "valueType": "switch"
+    }
+  ]
+}

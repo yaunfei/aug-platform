@@ -1,0 +1,24 @@
+export function isTruthyEnv(value) {
+    return value === "1" || value === "true";
+}
+export function isPersistentCachingEnabled(configuredValue) {
+    var _a;
+    return (!isTruthyEnv((_a = process.env.DISABLE_PERSISTENT_CACHE) === null || _a === void 0 ? void 0 : _a.toLowerCase()) &&
+        (configuredValue !== null && configuredValue !== void 0 ? configuredValue : true));
+}
+export function normalizeTurbopackMemoryEviction(value) {
+    if (value === false) {
+        return "off";
+    }
+    if (value === true || value === "full") {
+        return "full";
+    }
+    if (value === "auto") {
+        return "auto";
+    }
+    const rawEnv = process.env.TURBO_ENGINE_EVICT_AFTER_SNAPSHOT;
+    if (rawEnv == null) {
+        return "auto";
+    }
+    return rawEnv === "1" || rawEnv === "true" ? "full" : "off";
+}

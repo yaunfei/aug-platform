@@ -1,0 +1,24 @@
+{
+  "name": "case11_group_flat_field",
+  "description": "group 扁平子字段：from 直取 $.data.<childDataIndex>",
+  "config": {
+    "viewKey": "test_group",
+    "title": "group 扁平测试",
+    "formKey": "order_form",
+    "mappings": [
+      { "from": "$.data.customer_name", "to": "customerName", "type": "string" },
+      { "from": "$.data.customer_phone", "to": "customerPhone", "type": "string" }
+    ]
+  },
+  "inputRecord": {
+    "id": 1,
+    "schemaVersion": 1,
+    "createdAt": "2026-07-01T12:00:00Z",
+    "updatedAt": "2026-07-01T12:00:00Z",
+    "data": { "customer_name": "张三", "customer_phone": "13800000001" }
+  },
+  "expectedOutput": {
+    "customerName": "张三",
+    "customerPhone": "13800000001"
+  }
+}

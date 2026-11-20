@@ -1,0 +1,6 @@
+/workspace/java-provider/record-provider-app/src/test/java/com/aug/record/provider/TestFixtures.java
+/workspace/java-provider/record-provider-app/src/test/java/com/aug/record/provider/query/QueryValidatorTest.java
+/workspace/java-provider/record-provider-app/src/test/java/com/aug/record/provider/service/RecordServiceImplTest.java
+/workspace/java-provider/record-provider-app/src/test/java/com/aug/record/provider/view/ViewConfigParserTest.java
+/workspace/java-provider/record-provider-app/src/test/java/com/aug/record/provider/view/ViewConfigRepositoryTest.java
+/workspace/java-provider/record-provider-app/src/test/java/com/aug/record/provider/view/ViewTransformerTest.java

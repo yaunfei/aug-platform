@@ -1,0 +1,16 @@
+{
+  "formKey": "idea_collect",
+  "title": "想法收集表",
+  "columns": [
+    {
+      "dataIndex": "author",
+      "title": "提交人",
+      "valueType": "text"
+    },
+    {
+      "dataIndex": "content",
+      "title": "想法内容",
+      "valueType": "textarea"
+    }
+  ]
+}

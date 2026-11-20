@@ -1,0 +1,23 @@
+{
+  "name": "case08_missing_field_omit",
+  "description": "from 取不到值 → 字段省略",
+  "config": {
+    "viewKey": "test_missing",
+    "title": "缺字段测试",
+    "formKey": "order_form",
+    "mappings": [
+      { "from": "$.id", "to": "recordId", "type": "long" },
+      { "from": "$.data.optional_field", "to": "optional", "type": "string" }
+    ]
+  },
+  "inputRecord": {
+    "id": 1,
+    "schemaVersion": 1,
+    "createdAt": "2026-07-01T12:00:00Z",
+    "updatedAt": "2026-07-01T12:00:00Z",
+    "data": {}
+  },
+  "expectedOutput": {
+    "recordId": 1
+  }
+}

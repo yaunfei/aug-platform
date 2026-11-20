@@ -1,0 +1,15 @@
+{
+  "viewKey": "crm_order_v2",
+  "title": "CRM 订单接口 v2",
+  "formKey": "order_form",
+  "description": "对齐 CRM 开放平台《订单查询接口》v2",
+  "mappings": [
+    { "from": "$.id", "to": "recordId", "type": "long" },
+    { "from": "$.data.customer_name", "to": "buyer.name", "type": "string" },
+    { "from": "$.data.amount", "to": "payment.amount", "type": "decimal", "scale": 2 },
+    { "from": "$.data.status", "to": "orderStatus", "type": "enum",
+      "enumMap": { "pending": "待支付", "paid": "已支付" }, "enumDefault": "未知" },
+    { "from": "$.createdAt", "to": "createTime", "type": "datetime", "format": "yyyy-MM-dd HH:mm:ss" },
+    { "to": "source", "type": "const", "value": "aug-platform" }
+  ]
+}

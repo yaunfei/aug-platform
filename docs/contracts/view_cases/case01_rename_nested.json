@@ -1,0 +1,27 @@
+{
+  "name": "case01_rename_nested",
+  "description": "基础：字段改名 + 嵌套路径",
+  "config": {
+    "viewKey": "test_view_v1",
+    "title": "测试视图",
+    "formKey": "order_form",
+    "mappings": [
+      { "from": "$.id", "to": "recordId", "type": "long" },
+      { "from": "$.data.customer_name", "to": "buyer.name", "type": "string" },
+      { "from": "$.data.amount", "to": "payment.amount", "type": "decimal", "scale": 2 }
+    ]
+  },
+  "inputRecord": {
+    "id": 1,
+    "schemaVersion": 3,
+    "createdAt": "2026-07-01T12:00:00Z",
+    "updatedAt": "2026-07-02T12:00:00Z",
+    "createdBy": "tester",
+    "data": { "customer_name": "张三", "amount": 1999.99 }
+  },
+  "expectedOutput": {
+    "recordId": 1,
+    "buyer": { "name": "张三" },
+    "payment": { "amount": 1999.99 }
+  }
+}

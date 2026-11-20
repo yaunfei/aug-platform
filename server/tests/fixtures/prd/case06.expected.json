@@ -1,0 +1,61 @@
+{
+  "formKey": "bug_report",
+  "title": "缺陷上报表",
+  "columns": [
+    {
+      "dataIndex": "bug_title",
+      "title": "标题",
+      "valueType": "text",
+      "formItemProps": {
+        "rules": [
+          {
+            "required": true,
+            "message": "请输入标题"
+          }
+        ]
+      }
+    },
+    {
+      "dataIndex": "priority",
+      "title": "优先级",
+      "valueType": "select",
+      "valueEnum": {
+        "high": {
+          "text": "高"
+        },
+        "medium": {
+          "text": "中"
+        },
+        "low": {
+          "text": "低"
+        }
+      },
+      "formItemProps": {
+        "rules": [
+          {
+            "required": true,
+            "message": "请选择优先级"
+          }
+        ]
+      }
+    },
+    {
+      "dataIndex": "repro_steps",
+      "title": "复现步骤",
+      "valueType": "textarea",
+      "formItemProps": {
+        "rules": [
+          {
+            "required": true,
+            "message": "请输入复现步骤"
+          }
+        ]
+      }
+    },
+    {
+      "dataIndex": "blocking",
+      "title": "是否阻塞发布",
+      "valueType": "switch"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "name": "case05_daterange_split",
+  "description": "dateRange 按 [0]/[1] 拆成两个字段",
+  "config": {
+    "viewKey": "test_daterange",
+    "title": "日期范围测试",
+    "formKey": "order_form",
+    "mappings": [
+      { "from": "$.data.apply_range[0]", "to": "applyStartDate", "type": "string" },
+      { "from": "$.data.apply_range[1]", "to": "applyEndDate", "type": "string" }
+    ]
+  },
+  "inputRecord": {
+    "id": 1,
+    "schemaVersion": 1,
+    "createdAt": "2026-07-01T12:00:00Z",
+    "updatedAt": "2026-07-01T12:00:00Z",
+    "data": { "apply_range": ["2026-01-01", "2026-06-30"] }
+  },
+  "expectedOutput": {
+    "applyStartDate": "2026-01-01",
+    "applyEndDate": "2026-06-30"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "formKey": "event_signup",
+  "title": "活动报名表",
+  "columns": [
+    {
+      "dataIndex": "name",
+      "title": "姓名",
+      "valueType": "text",
+      "formItemProps": {
+        "rules": [
+          {
+            "required": true,
+            "message": "请输入姓名"
+          }
+        ]
+      }
+    },
+    {
+      "dataIndex": "phone",
+      "title": "手机号",
+      "valueType": "text",
+      "formItemProps": {
+        "rules": [
+          {
+            "required": true,
+            "message": "请输入手机号"
+          },
+          {
+            "pattern": "^1[0-9]{10}$",
+            "message": "手机号格式不正确"
+          }
+        ]
+      }
+    },
+    {
+      "dataIndex": "sessions",
+      "title": "参加场次",
+      "valueType": "checkbox",
+      "valueEnum": {
+        "morning": {
+          "text": "上午场"
+        },
+        "afternoon": {
+          "text": "下午场"
+        }
+      }
+    },
+    {
+      "dataIndex": "remind_at",
+      "title": "提醒时间",
+      "valueType": "dateTime"
+    }
+  ]
+}

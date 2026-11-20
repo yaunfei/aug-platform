@@ -1,0 +1,7 @@
+com/aug/record/api/RecordFacade.class
+com/aug/record/api/RecordQuery.class
+com/aug/record/api/RecordPageDTO.class
+com/aug/record/api/Result.class
+com/aug/record/api/RecordDetailDTO.class
+com/aug/record/api/RecordDTO.class
+com/aug/record/api/ErrorCodes.class

@@ -1,0 +1,59 @@
+{
+  "instruction": "修改当前 Schema：把 apply_reason 的标题改成「申请理由」、approver 的标题改成「审批人」，再加一个申请时间范围字段 apply_range，标题「申请时间范围」，类型 dateRange，不在表格中展示（hideInTable 设为 true）。",
+  "currentSchema": {
+    "formKey": "leave_apply",
+    "title": "请假申请表",
+    "columns": [
+      {
+        "dataIndex": "apply_reason",
+        "title": "原因",
+        "valueType": "textarea",
+        "hideInSearch": true,
+        "formItemProps": {
+          "rules": [
+            {
+              "required": true,
+              "message": "请输入原因"
+            }
+          ]
+        }
+      },
+      {
+        "dataIndex": "approver",
+        "title": "审批",
+        "valueType": "text"
+      }
+    ]
+  },
+  "expected": {
+    "formKey": "leave_apply",
+    "title": "请假申请表",
+    "columns": [
+      {
+        "dataIndex": "apply_reason",
+        "title": "申请理由",
+        "valueType": "textarea",
+        "hideInSearch": true,
+        "formItemProps": {
+          "rules": [
+            {
+              "required": true,
+              "message": "请输入原因"
+            }
+          ]
+        }
+      },
+      {
+        "dataIndex": "approver",
+        "title": "审批人",
+        "valueType": "text"
+      },
+      {
+        "dataIndex": "apply_range",
+        "title": "申请时间范围",
+        "valueType": "dateRange",
+        "hideInTable": true
+      }
+    ]
+  }
+}

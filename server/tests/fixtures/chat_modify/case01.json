@@ -1,0 +1,66 @@
+{
+  "instruction": "修改当前 Schema：在会员登记表里加一个邮箱字段 email，必填，标题叫「邮箱」，其他字段保持不变。",
+  "currentSchema": {
+    "formKey": "member_register",
+    "title": "会员登记表",
+    "columns": [
+      {
+        "dataIndex": "member_name",
+        "title": "会员姓名",
+        "valueType": "text",
+        "formItemProps": {
+          "rules": [
+            {
+              "required": true,
+              "message": "请输入会员姓名"
+            }
+          ]
+        }
+      },
+      {
+        "dataIndex": "phone",
+        "title": "手机号",
+        "valueType": "text",
+        "hideInSearch": true
+      }
+    ]
+  },
+  "expected": {
+    "formKey": "member_register",
+    "title": "会员登记表",
+    "columns": [
+      {
+        "dataIndex": "member_name",
+        "title": "会员姓名",
+        "valueType": "text",
+        "formItemProps": {
+          "rules": [
+            {
+              "required": true,
+              "message": "请输入会员姓名"
+            }
+          ]
+        }
+      },
+      {
+        "dataIndex": "phone",
+        "title": "手机号",
+        "valueType": "text",
+        "hideInSearch": true
+      },
+      {
+        "dataIndex": "email",
+        "title": "邮箱",
+        "valueType": "text",
+        "formItemProps": {
+          "rules": [
+            {
+              "required": true,
+              "message": "请输入邮箱"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

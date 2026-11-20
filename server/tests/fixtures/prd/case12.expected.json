@@ -1,0 +1,16 @@
+{
+  "formKey": "basic_info",
+  "title": "信息登记表",
+  "columns": [
+    {
+      "dataIndex": "name",
+      "title": "名字",
+      "valueType": "text"
+    },
+    {
+      "dataIndex": "remark",
+      "title": "备注",
+      "valueType": "textarea"
+    }
+  ]
+}

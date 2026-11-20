@@ -1,0 +1,53 @@
+{
+  "formKey": "expense_claim",
+  "title": "差旅报销申请表",
+  "columns": [
+    {
+      "dataIndex": "amount",
+      "title": "报销金额",
+      "valueType": "money",
+      "formItemProps": {
+        "rules": [
+          {
+            "required": true,
+            "message": "请输入报销金额"
+          }
+        ]
+      }
+    },
+    {
+      "dataIndex": "expense_type",
+      "title": "费用类型",
+      "valueType": "select",
+      "valueEnum": {
+        "travel": {
+          "text": "差旅"
+        },
+        "meal": {
+          "text": "餐饮"
+        },
+        "office": {
+          "text": "办公用品"
+        }
+      },
+      "formItemProps": {
+        "rules": [
+          {
+            "required": true,
+            "message": "请选择费用类型"
+          }
+        ]
+      }
+    },
+    {
+      "dataIndex": "reason",
+      "title": "报销说明",
+      "valueType": "textarea"
+    },
+    {
+      "dataIndex": "expense_date",
+      "title": "费用发生日期",
+      "valueType": "date"
+    }
+  ]
+}

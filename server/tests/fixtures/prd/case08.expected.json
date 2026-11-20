@@ -1,0 +1,42 @@
+{
+  "formKey": "inventory_entry",
+  "title": "物资入库登记表",
+  "columns": [
+    {
+      "dataIndex": "item_name",
+      "title": "物品名称",
+      "valueType": "text",
+      "formItemProps": {
+        "rules": [
+          {
+            "required": true,
+            "message": "请输入物品名称"
+          }
+        ]
+      }
+    },
+    {
+      "dataIndex": "quantity",
+      "title": "数量",
+      "valueType": "digit",
+      "formItemProps": {
+        "rules": [
+          {
+            "required": true,
+            "message": "请输入数量"
+          }
+        ]
+      }
+    },
+    {
+      "dataIndex": "unit_price",
+      "title": "单价",
+      "valueType": "money"
+    },
+    {
+      "dataIndex": "stock_date",
+      "title": "入库日期",
+      "valueType": "date"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "name": "case09_prefix_conflict",
+  "description": "to 路径前缀冲突应报错",
+  "config": {
+    "viewKey": "test_prefix",
+    "title": "前缀冲突测试",
+    "formKey": "order_form",
+    "mappings": [
+      { "from": "$.id", "to": "a.b", "type": "long" },
+      { "from": "$.data.name", "to": "a.b.c", "type": "string" }
+    ]
+  },
+  "inputRecord": {
+    "id": 1,
+    "schemaVersion": 1,
+    "createdAt": "2026-07-01T12:00:00Z",
+    "updatedAt": "2026-07-01T12:00:00Z",
+    "data": { "name": "test" }
+  },
+  "expectedError": "VIEW_CONFIG_INVALID",
+  "expectedErrorContains": "前缀冲突"
+}

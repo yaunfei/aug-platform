@@ -1,0 +1,68 @@
+{
+  "instruction": "修改当前 Schema：把备注字段 remark 删掉，另外手机号 phone 改成必填。",
+  "currentSchema": {
+    "formKey": "member_register",
+    "title": "会员登记表",
+    "columns": [
+      {
+        "dataIndex": "member_name",
+        "title": "会员姓名",
+        "valueType": "text",
+        "formItemProps": {
+          "rules": [
+            {
+              "required": true,
+              "message": "请输入会员姓名"
+            }
+          ]
+        }
+      },
+      {
+        "dataIndex": "phone",
+        "title": "手机号",
+        "valueType": "text",
+        "hideInSearch": true
+      },
+      {
+        "dataIndex": "remark",
+        "title": "备注",
+        "valueType": "textarea",
+        "hideInSearch": true,
+        "hideInTable": true
+      }
+    ]
+  },
+  "expected": {
+    "formKey": "member_register",
+    "title": "会员登记表",
+    "columns": [
+      {
+        "dataIndex": "member_name",
+        "title": "会员姓名",
+        "valueType": "text",
+        "formItemProps": {
+          "rules": [
+            {
+              "required": true,
+              "message": "请输入会员姓名"
+            }
+          ]
+        }
+      },
+      {
+        "dataIndex": "phone",
+        "title": "手机号",
+        "valueType": "text",
+        "hideInSearch": true,
+        "formItemProps": {
+          "rules": [
+            {
+              "required": true,
+              "message": "请输入手机号"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

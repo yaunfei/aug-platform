@@ -1,0 +1,53 @@
+{
+  "formKey": "meeting_booking",
+  "title": "会议室预订表",
+  "columns": [
+    {
+      "dataIndex": "subject",
+      "title": "会议主题",
+      "valueType": "text",
+      "formItemProps": {
+        "rules": [
+          {
+            "required": true,
+            "message": "请输入会议主题"
+          }
+        ]
+      }
+    },
+    {
+      "dataIndex": "start_time",
+      "title": "开始时间",
+      "valueType": "dateTime",
+      "formItemProps": {
+        "rules": [
+          {
+            "required": true,
+            "message": "请选择开始时间"
+          }
+        ]
+      }
+    },
+    {
+      "dataIndex": "attendee_count",
+      "title": "参会人数",
+      "valueType": "digit"
+    },
+    {
+      "dataIndex": "room",
+      "title": "会议室",
+      "valueType": "select",
+      "valueEnum": {
+        "a101": {
+          "text": "A101"
+        },
+        "a102": {
+          "text": "A102"
+        },
+        "b201": {
+          "text": "B201"
+        }
+      }
+    }
+  ]
+}

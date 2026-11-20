@@ -1,0 +1,24 @@
+{
+  "name": "case03_enum_hit_default",
+  "description": "enumMap 命中 + 未命中但有 enumDefault → 默认值",
+  "config": {
+    "viewKey": "test_enum",
+    "title": "枚举测试",
+    "formKey": "order_form",
+    "mappings": [
+      { "from": "$.data.status", "to": "orderStatus", "type": "enum",
+        "enumMap": { "pending": "待支付", "paid": "已支付" },
+        "enumDefault": "未知" }
+    ]
+  },
+  "inputRecord": {
+    "id": 1,
+    "schemaVersion": 1,
+    "createdAt": "2026-07-01T12:00:00Z",
+    "updatedAt": "2026-07-01T12:00:00Z",
+    "data": { "status": "pending" }
+  },
+  "expectedOutput": {
+    "orderStatus": "待支付"
+  }
+}

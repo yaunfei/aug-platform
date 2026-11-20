@@ -1,0 +1,348 @@
+{
+  "components": [
+    {
+      "valueType": "text",
+      "label": "短文本",
+      "criteria": "短文本（默认兜底：无法判断类型时一律用 text）"
+    },
+    {
+      "valueType": "textarea",
+      "label": "长文本",
+      "criteria": "长文本/多行描述"
+    },
+    {
+      "valueType": "select",
+      "label": "下拉单选",
+      "criteria": "有固定可选项的单选下拉",
+      "requiresValueEnum": true
+    },
+    {
+      "valueType": "radio",
+      "label": "单选平铺",
+      "criteria": "可选项少（≤5）且需平铺展示",
+      "requiresValueEnum": true
+    },
+    {
+      "valueType": "checkbox",
+      "label": "多选",
+      "criteria": "可多选",
+      "requiresValueEnum": true
+    },
+    {
+      "valueType": "date",
+      "label": "日期",
+      "criteria": "某一天"
+    },
+    {
+      "valueType": "dateTime",
+      "label": "日期时间",
+      "criteria": "精确到时分秒"
+    },
+    {
+      "valueType": "dateRange",
+      "label": "日期区间",
+      "criteria": "起止时间段"
+    },
+    {
+      "valueType": "digit",
+      "label": "数字",
+      "criteria": "数量/整数/小数"
+    },
+    {
+      "valueType": "money",
+      "label": "金额",
+      "criteria": "金额"
+    },
+    {
+      "valueType": "switch",
+      "label": "开关",
+      "criteria": "二选一的开关语义（是/否、启用/禁用）"
+    },
+    {
+      "valueType": "rate",
+      "label": "评分",
+      "criteria": "评分/打分/满意度（1-5 星）",
+      "rules": "rate 为 ProComponents 原生评分组件，存储值为 1-5 的数字；不需要 valueEnum；查询场景意义不大，默认建议 hideInSearch。"
+    },
+    {
+      "valueType": "phone",
+      "label": "手机号",
+      "criteria": "手机号/联系电话（11 位大陆手机号）",
+      "custom": true,
+      "frontendRenderer": "phone",
+      "allowedFieldProps": ["placeholder"],
+      "rules": "phone 为业务自定义手机号组件，存储值为 11 位数字字符串；必填之外建议在 formItemProps.rules 附加 pattern \"^1[3-9]\\\\d{9}$\" 校验；fieldProps 仅允许 placeholder。",
+      "fewShot": {
+        "dataIndex": "contact_phone",
+        "title": "联系电话",
+        "valueType": "phone",
+        "hideInSearch": true,
+        "formItemProps": {
+          "rules": [
+            { "required": true, "message": "请输入联系电话" },
+            { "pattern": "^1[3-9]\\d{9}$", "message": "请输入 11 位手机号" }
+          ]
+        },
+        "fieldProps": { "placeholder": "请输入 11 位手机号" }
+      }
+    },
+    {
+      "valueType": "imageUpload",
+      "label": "图片上传",
+      "criteria": "需要用户上传图片文件（凭证/截图/LOGO/照片）；仅录入已有图片链接时用 image",
+      "custom": true,
+      "frontendRenderer": "imageUpload",
+      "allowedFieldProps": ["maxSizeMB"],
+      "rules": "imageUpload 为业务自定义图片上传组件（单图），存储值为上传后的图片 URL 字符串；仅支持 png/jpg/jpeg/webp，默认单张 5MB 以内；查询无意义，必须 hideInSearch；PRD 出现『仅展示/仅详情』语义时应设 hideInForm: true；fieldProps 仅允许 maxSizeMB。",
+      "fewShot": {
+        "dataIndex": "license_photo",
+        "title": "营业执照照片",
+        "valueType": "imageUpload",
+        "hideInSearch": true,
+        "formItemProps": {
+          "rules": [{ "required": true, "message": "请上传营业执照照片" }]
+        }
+      }
+    },
+    {
+      "valueType": "pagUpload",
+      "label": "PAG 动效上传",
+      "criteria": "需要上传 PAG 动效文件（动画素材/特效/动效资源，.pag 后缀）",
+      "custom": true,
+      "frontendRenderer": "pagUpload",
+      "allowedFieldProps": ["maxSizeMB", "placeholder"],
+      "rules": "pagUpload 为业务自定义 PAG 动效上传组件（单文件），支持粘贴 URL 或本地上传，存储值为 .pag 文件的 URL 字符串；默认单文件 5MB 以内；查询无意义，必须 hideInSearch；fieldProps 仅允许 maxSizeMB、placeholder。",
+      "fewShot": {
+        "dataIndex": "effect_pag",
+        "title": "动效文件",
+        "valueType": "pagUpload",
+        "hideInSearch": true,
+        "formItemProps": {
+          "rules": [{ "required": true, "message": "请上传 PAG 动效文件" }]
+        }
+      }
+    },
+    {
+      "valueType": "inputUpload",
+      "label": "素材输入上传",
+      "criteria": "图片/PAG 动效通用素材录入，既允许粘贴已有 URL 也允许本地上传；仅上传图片用 imageUpload，仅上传 PAG 用 pagUpload",
+      "custom": true,
+      "frontendRenderer": "inputUpload",
+      "allowedFieldProps": ["maxSizeMB", "placeholder"],
+      "rules": "inputUpload 为业务自定义素材录入组件（URL 输入框 + 上传二合一，单文件），支持图片（png/jpg/jpeg/webp）与 PAG 动效，存储值为素材 URL 字符串；默认单文件 5MB 以内；查询无意义，必须 hideInSearch；fieldProps 仅允许 maxSizeMB、placeholder。",
+      "fewShot": {
+        "dataIndex": "material_url",
+        "title": "素材",
+        "valueType": "inputUpload",
+        "hideInSearch": true,
+        "fieldProps": { "placeholder": "粘贴素材 URL 或点击右侧上传" }
+      }
+    },
+    {
+      "valueType": "peopleGroup",
+      "label": "人群选择",
+      "criteria": "营销/投放场景选择目标人群（用户标签/人群包/所有用户）",
+      "custom": true,
+      "frontendRenderer": "peopleGroup",
+      "allowedFieldProps": ["mode"],
+      "rules": "peopleGroup 为业务自定义人群选择组件，选项固定为：dmp=用户标签、package=人群包、allUsers=所有用户，不需要也不允许 valueEnum；fieldProps.mode 可选 radio（默认，单选，存储单个字符串）或 checkbox（多选，存储字符串数组）；查询意义不大，建议 hideInSearch。",
+      "fewShot": {
+        "dataIndex": "target_group",
+        "title": "目标人群",
+        "valueType": "peopleGroup",
+        "hideInSearch": true,
+        "formItemProps": {
+          "rules": [{ "required": true, "message": "请选择目标人群" }]
+        },
+        "fieldProps": { "mode": "radio" }
+      }
+    },
+    {
+      "valueType": "password",
+      "label": "密码",
+      "criteria": "密码/口令输入（密文显示）"
+    },
+    {
+      "valueType": "digitRange",
+      "label": "数字区间",
+      "criteria": "数值范围（最小值-最大值）"
+    },
+    {
+      "valueType": "percent",
+      "label": "百分比",
+      "criteria": "百分比数值（占比/比率）"
+    },
+    {
+      "valueType": "second",
+      "label": "秒数",
+      "criteria": "时长（秒），展示时格式化为时分秒"
+    },
+    {
+      "valueType": "slider",
+      "label": "滑动条",
+      "criteria": "在连续数值区间内拖动取值"
+    },
+    {
+      "valueType": "radioButton",
+      "label": "单选按钮",
+      "criteria": "可选项少（≤5）且需按钮样式平铺的单选",
+      "requiresValueEnum": true
+    },
+    {
+      "valueType": "segmented",
+      "label": "分段器",
+      "criteria": "少量互斥选项的分段切换（视图/模式切换）",
+      "requiresValueEnum": true
+    },
+    {
+      "valueType": "cascader",
+      "label": "级联选择",
+      "criteria": "多级联动选择（省市区/类目层级）",
+      "rules": "cascader 的树形选项通过 fieldProps.options 提供（label/value/children 结构），不使用 valueEnum；存储值为路径数组。"
+    },
+    {
+      "valueType": "treeSelect",
+      "label": "树形选择",
+      "criteria": "树形结构中选择节点（组织架构/部门）",
+      "rules": "treeSelect 的树形选项通过 fieldProps.treeData 提供（title/value/children 结构），不使用 valueEnum。"
+    },
+    {
+      "valueType": "dateWeek",
+      "label": "周",
+      "criteria": "选择某一周"
+    },
+    {
+      "valueType": "dateMonth",
+      "label": "月份",
+      "criteria": "选择某一月"
+    },
+    {
+      "valueType": "dateQuarter",
+      "label": "季度",
+      "criteria": "选择某一季度"
+    },
+    {
+      "valueType": "dateYear",
+      "label": "年份",
+      "criteria": "选择某一年"
+    },
+    {
+      "valueType": "dateTimeRange",
+      "label": "日期时间区间",
+      "criteria": "精确到时分秒的起止时间段"
+    },
+    {
+      "valueType": "dateWeekRange",
+      "label": "周区间",
+      "criteria": "起止周范围"
+    },
+    {
+      "valueType": "dateMonthRange",
+      "label": "月区间",
+      "criteria": "起止月范围"
+    },
+    {
+      "valueType": "dateQuarterRange",
+      "label": "季度区间",
+      "criteria": "起止季度范围"
+    },
+    {
+      "valueType": "dateYearRange",
+      "label": "年区间",
+      "criteria": "起止年份范围"
+    },
+    {
+      "valueType": "time",
+      "label": "时间",
+      "criteria": "一天内的时间点（HH:mm:ss）"
+    },
+    {
+      "valueType": "timeRange",
+      "label": "时间区间",
+      "criteria": "一天内的起止时间段"
+    },
+    {
+      "valueType": "fromNow",
+      "label": "相对时间",
+      "criteria": "展示距今的相对时间（如“3 天前”）",
+      "rules": "fromNow 为展示型组件，存储值为日期时间；表单录入场景意义不大，建议 hideInForm，查询建议 hideInSearch。"
+    },
+    {
+      "valueType": "progress",
+      "label": "进度条",
+      "criteria": "展示百分比进度（0-100）",
+      "rules": "progress 为展示型组件，存储值为 0-100 数字；建议 hideInForm + hideInSearch，编辑场景请改用 percent 或 digit。"
+    },
+    {
+      "valueType": "avatar",
+      "label": "头像",
+      "criteria": "头像图片（URL）展示",
+      "rules": "avatar 为展示型组件，存储值为图片 URL 字符串；建议 hideInSearch，表单录入请改用 text 或 image。"
+    },
+    {
+      "valueType": "image",
+      "label": "图片",
+      "criteria": "图片（URL）展示与录入",
+      "rules": "image 存储值为图片 URL 字符串，编辑态为 URL 输入框（需要真实上传文件时用 imageUpload）；建议 hideInSearch；PRD 出现『仅展示/仅详情』语义时应设 hideInForm: true。"
+    },
+    {
+      "valueType": "color",
+      "label": "颜色",
+      "criteria": "颜色选取（主题色/标签色）",
+      "rules": "color 存储值为颜色字符串（如 #1677ff）；查询场景意义不大，建议 hideInSearch。"
+    },
+    {
+      "valueType": "code",
+      "label": "代码",
+      "criteria": "代码片段/脚本文本",
+      "rules": "code 以等宽多行文本域录入展示；查询建议 hideInSearch。"
+    },
+    {
+      "valueType": "jsonCode",
+      "label": "JSON 代码",
+      "criteria": "JSON 配置/结构化文本（自动格式化）",
+      "rules": "jsonCode 展示时自动格式化 JSON；查询建议 hideInSearch。"
+    },
+    {
+      "valueType": "index",
+      "label": "序号",
+      "criteria": "表格行序号列（展示用，非数据字段）",
+      "rules": "index 为表格专用展示列，无数据存储；必须 hideInForm + hideInSearch，一般不由 AI 主动生成。"
+    },
+    {
+      "valueType": "indexBorder",
+      "label": "带边框序号",
+      "criteria": "表格行序号列（带边框样式，展示用）",
+      "rules": "indexBorder 为表格专用展示列，无数据存储；必须 hideInForm + hideInSearch，一般不由 AI 主动生成。"
+    },
+    {
+      "valueType": "option",
+      "label": "操作列",
+      "criteria": "表格操作列（编辑/删除等按钮，非数据字段）",
+      "rules": "option 为表格专用操作列，无数据存储；必须 hideInForm + hideInSearch，一般不由 AI 主动生成。"
+    },
+    {
+      "valueType": "group",
+      "label": "分组",
+      "criteria": "字段较多（≥8）时按主题分区块（如“基本信息”“联系方式”），子字段放在 columns 中",
+      "layout": true,
+      "childrenPolicy": "required",
+      "rules": "group 为纯视觉分组，子字段数据仍为顶层扁平结构，子字段 dataIndex 全表单唯一；表格/详情展示时子列会被展平为顶层列；group 自身不存储数据，禁止嵌套其他布局组件。"
+    },
+    {
+      "valueType": "divider",
+      "label": "分割线",
+      "criteria": "区块之间的视觉分隔（无数据字段）",
+      "layout": true,
+      "rules": "divider 为纯视觉分割线，无数据存储，title 可选（作为分割线文字）；表格/查询场景会被直接丢弃。"
+    },
+    {
+      "valueType": "formList",
+      "label": "表单列表",
+      "criteria": "一对多明细行（联系人列表/商品明细），PRD 出现“多条/明细/列表录入”语义时使用，子字段放在 columns 中",
+      "layout": true,
+      "childrenPolicy": "required",
+      "rules": "formList 的 dataIndex 存储对象数组，每个对象的键取自子列 dataIndex（子字段在 list 内部独立命名空间）；表格展示降级为条数，不支持按嵌套字段查询，建议 hideInSearch；禁止嵌套其他布局组件。"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "formKey": "user_feedback",
+  "title": "用户反馈表",
+  "columns": [
+    {
+      "dataIndex": "feedback_title",
+      "title": "反馈标题",
+      "valueType": "text",
+      "hideInSearch": true,
+      "formItemProps": {
+        "rules": [
+          {
+            "required": true,
+            "message": "请输入反馈标题"
+          }
+        ]
+      },
+      "fieldProps": {
+        "maxLength": 100
+      }
+    },
+    {
+      "dataIndex": "level",
+      "title": "严重程度",
+      "valueType": "select",
+      "valueEnum": {
+        "p0": {
+          "text": "致命"
+        },
+        "p1": {
+          "text": "严重"
+        },
+        "p2": {
+          "text": "一般"
+        }
+      },
+      "formItemProps": {
+        "rules": [
+          {
+            "required": true,
+            "message": "请选择严重程度"
+          }
+        ]
+      }
+    },
+    {
+      "dataIndex": "occur_range",
+      "title": "发生时间",
+      "valueType": "dateRange",
+      "hideInTable": true,
+      "hideInSearch": true
+    }
+  ]
+}

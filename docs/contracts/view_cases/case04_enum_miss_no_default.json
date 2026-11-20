@@ -1,0 +1,21 @@
+{
+  "name": "case04_enum_miss_no_default",
+  "description": "enumMap 未命中 + 无 enumDefault → 字段省略",
+  "config": {
+    "viewKey": "test_enum_miss",
+    "title": "枚举未命中测试",
+    "formKey": "order_form",
+    "mappings": [
+      { "from": "$.data.status", "to": "orderStatus", "type": "enum",
+        "enumMap": { "pending": "待支付", "paid": "已支付" } }
+    ]
+  },
+  "inputRecord": {
+    "id": 1,
+    "schemaVersion": 1,
+    "createdAt": "2026-07-01T12:00:00Z",
+    "updatedAt": "2026-07-01T12:00:00Z",
+    "data": { "status": "cancelled" }
+  },
+  "expectedOutput": {}
+}

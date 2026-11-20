@@ -1,0 +1,35 @@
+{
+  "name": "case10_array_nested_deep",
+  "description": "2 层 array 嵌套 → 正确转换（上限边界）",
+  "config": {
+    "viewKey": "test_nested",
+    "title": "深度嵌套测试",
+    "formKey": "order_form",
+    "mappings": [
+      { "from": "$.data.orders", "to": "orders", "type": "array",
+        "itemMappings": [
+          { "from": "$.id", "to": "orderId", "type": "long" },
+          { "from": "$.items", "to": "items", "type": "array",
+            "itemMappings": [
+              { "from": "$.name", "to": "itemName", "type": "string" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "inputRecord": {
+    "id": 1,
+    "schemaVersion": 1,
+    "createdAt": "2026-07-01T12:00:00Z",
+    "updatedAt": "2026-07-01T12:00:00Z",
+    "data": { "orders": [
+      { "id": 100, "items": [{ "name": "商品A" }, { "name": "商品B" }] }
+    ]}
+  },
+  "expectedOutput": {
+    "orders": [
+      { "orderId": 100, "items": [{ "itemName": "商品A" }, { "itemName": "商品B" }] }
+    ]
+  }
+}

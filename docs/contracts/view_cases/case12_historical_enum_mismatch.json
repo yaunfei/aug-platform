@@ -1,0 +1,24 @@
+{
+  "name": "case12_historical_enum_mismatch",
+  "description": "历史记录的 enum key 已被新版 enumMap 覆盖删除 → fallback 到 enumDefault",
+  "config": {
+    "viewKey": "test_history",
+    "title": "历史枚举测试",
+    "formKey": "order_form",
+    "mappings": [
+      { "from": "$.data.status", "to": "orderStatus", "type": "enum",
+        "enumMap": { "paid": "已支付", "shipped": "已发货" },
+        "enumDefault": "未知" }
+    ]
+  },
+  "inputRecord": {
+    "id": 1,
+    "schemaVersion": 2,
+    "createdAt": "2026-01-01T12:00:00Z",
+    "updatedAt": "2026-01-01T12:00:00Z",
+    "data": { "status": "pending" }
+  },
+  "expectedOutput": {
+    "orderStatus": "未知"
+  }
+}

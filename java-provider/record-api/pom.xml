@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.aug.record</groupId>
+    <artifactId>record-provider</artifactId>
+    <version>1.0.0</version>
+    <relativePath>../pom.xml</relativePath>
+  </parent>
+
+  <artifactId>record-api</artifactId>
+  <name>record-api</name>
+  <description>Dubbo 契约 jar：JDK 8 字节码 + 零第三方依赖（下游唯一依赖）</description>
+
+  <properties>
+    <!-- 铁律：record-api 必须是 JDK 8 字节码，供 Dubbo 2.x 老系统直接依赖 -->
+    <maven.compiler.release>8</maven.compiler.release>
+    <java.version>8</java.version>
+  </properties>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <release>8</release>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <!-- 刻意不声明任何依赖：禁止 json-path / jackson / lombok 等进入本模块 -->
+</project>

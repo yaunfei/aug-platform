@@ -1,0 +1,26 @@
+{
+  "name": "case07_const",
+  "description": "const 常量字段",
+  "config": {
+    "viewKey": "test_const",
+    "title": "常量测试",
+    "formKey": "order_form",
+    "mappings": [
+      { "from": "$.id", "to": "recordId", "type": "long" },
+      { "to": "source", "type": "const", "value": "aug-platform" },
+      { "to": "payment.currency", "type": "const", "value": "CNY" }
+    ]
+  },
+  "inputRecord": {
+    "id": 1,
+    "schemaVersion": 1,
+    "createdAt": "2026-07-01T12:00:00Z",
+    "updatedAt": "2026-07-01T12:00:00Z",
+    "data": {}
+  },
+  "expectedOutput": {
+    "recordId": 1,
+    "source": "aug-platform",
+    "payment": { "currency": "CNY" }
+  }
+}

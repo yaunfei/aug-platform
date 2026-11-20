@@ -1,0 +1,493 @@
+{
+  "$defs": {
+    "ColProps": {
+      "additionalProperties": false,
+      "properties": {
+        "span": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Span"
+        },
+        "xs": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Xs"
+        },
+        "sm": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Sm"
+        },
+        "md": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Md"
+        },
+        "lg": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Lg"
+        }
+      },
+      "title": "ColProps",
+      "type": "object"
+    },
+    "ColumnSchema": {
+      "additionalProperties": false,
+      "properties": {
+        "dataIndex": {
+          "pattern": "^[a-zA-Z][a-zA-Z0-9_]{0,63}$",
+          "title": "Dataindex",
+          "type": "string"
+        },
+        "title": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Title"
+        },
+        "valueType": {
+          "title": "Valuetype",
+          "type": "string",
+          "enum": [
+            "text",
+            "textarea",
+            "select",
+            "radio",
+            "checkbox",
+            "date",
+            "dateTime",
+            "dateRange",
+            "digit",
+            "money",
+            "switch",
+            "rate",
+            "phone",
+            "imageUpload",
+            "pagUpload",
+            "inputUpload",
+            "peopleGroup",
+            "password",
+            "digitRange",
+            "percent",
+            "second",
+            "slider",
+            "radioButton",
+            "segmented",
+            "cascader",
+            "treeSelect",
+            "dateWeek",
+            "dateMonth",
+            "dateQuarter",
+            "dateYear",
+            "dateTimeRange",
+            "dateWeekRange",
+            "dateMonthRange",
+            "dateQuarterRange",
+            "dateYearRange",
+            "time",
+            "timeRange",
+            "fromNow",
+            "progress",
+            "avatar",
+            "image",
+            "color",
+            "code",
+            "jsonCode",
+            "index",
+            "indexBorder",
+            "option",
+            "group",
+            "divider",
+            "formList"
+          ]
+        },
+        "valueEnum": {
+          "anyOf": [
+            {
+              "additionalProperties": {
+                "$ref": "#/$defs/ValueEnumItem"
+              },
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Valueenum"
+        },
+        "formItemProps": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/FormItemProps"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "fieldProps": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Fieldprops"
+        },
+        "hideInTable": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Hideintable"
+        },
+        "hideInSearch": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Hideinsearch"
+        },
+        "hideInForm": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Hideinform"
+        },
+        "tooltip": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Tooltip"
+        },
+        "width": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Width"
+        },
+        "initialValue": {
+          "anyOf": [
+            {},
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Initialvalue"
+        },
+        "colProps": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ColProps"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "columns": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/ColumnSchema"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Columns"
+        }
+      },
+      "required": [
+        "dataIndex",
+        "valueType"
+      ],
+      "title": "ColumnSchema",
+      "type": "object"
+    },
+    "FormItemProps": {
+      "additionalProperties": false,
+      "properties": {
+        "rules": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/FormItemRule"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Rules"
+        },
+        "tooltip": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Tooltip"
+        },
+        "extra": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Extra"
+        }
+      },
+      "title": "FormItemProps",
+      "type": "object"
+    },
+    "FormItemRule": {
+      "additionalProperties": false,
+      "properties": {
+        "required": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Required"
+        },
+        "message": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Message"
+        },
+        "max": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Max"
+        },
+        "min": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Min"
+        },
+        "len": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Len"
+        },
+        "pattern": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Pattern"
+        }
+      },
+      "title": "FormItemRule",
+      "type": "object"
+    },
+    "ValueEnumItem": {
+      "additionalProperties": false,
+      "properties": {
+        "text": {
+          "title": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "text"
+      ],
+      "title": "ValueEnumItem",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "formKey": {
+      "pattern": "^[a-z][a-z0-9_]{1,63}$",
+      "title": "Formkey",
+      "type": "string"
+    },
+    "title": {
+      "maxLength": 64,
+      "minLength": 1,
+      "title": "Title",
+      "type": "string"
+    },
+    "description": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Description"
+    },
+    "columns": {
+      "items": {
+        "$ref": "#/$defs/ColumnSchema"
+      },
+      "maxItems": 80,
+      "minItems": 1,
+      "title": "Columns",
+      "type": "array"
+    }
+  },
+  "required": [
+    "formKey",
+    "title",
+    "columns"
+  ],
+  "title": "FormSchema",
+  "type": "object"
+}

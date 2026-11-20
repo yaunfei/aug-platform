@@ -1,0 +1,48 @@
+{
+  "formKey": "leave_request",
+  "title": "请假申请表",
+  "columns": [
+    {
+      "dataIndex": "leave_type",
+      "title": "请假类型",
+      "valueType": "select",
+      "valueEnum": {
+        "annual": {
+          "text": "年假"
+        },
+        "sick": {
+          "text": "病假"
+        },
+        "personal": {
+          "text": "事假"
+        }
+      },
+      "formItemProps": {
+        "rules": [
+          {
+            "required": true,
+            "message": "请选择请假类型"
+          }
+        ]
+      }
+    },
+    {
+      "dataIndex": "leave_range",
+      "title": "请假时间",
+      "valueType": "dateRange",
+      "formItemProps": {
+        "rules": [
+          {
+            "required": true,
+            "message": "请选择请假时间"
+          }
+        ]
+      }
+    },
+    {
+      "dataIndex": "reason",
+      "title": "请假事由",
+      "valueType": "textarea"
+    }
+  ]
+}

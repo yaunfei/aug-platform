@@ -1,0 +1,43 @@
+{
+  "formKey": "product_survey",
+  "title": "产品使用问卷",
+  "columns": [
+    {
+      "dataIndex": "usage_freq",
+      "title": "使用频率",
+      "valueType": "radio",
+      "valueEnum": {
+        "daily": {
+          "text": "每天"
+        },
+        "weekly": {
+          "text": "每周"
+        },
+        "monthly": {
+          "text": "每月"
+        }
+      }
+    },
+    {
+      "dataIndex": "liked_features",
+      "title": "喜欢的功能",
+      "valueType": "checkbox",
+      "valueEnum": {
+        "search": {
+          "text": "搜索"
+        },
+        "export": {
+          "text": "导出"
+        },
+        "share": {
+          "text": "分享"
+        }
+      }
+    },
+    {
+      "dataIndex": "suggestion",
+      "title": "改进建议",
+      "valueType": "textarea"
+    }
+  ]
+}

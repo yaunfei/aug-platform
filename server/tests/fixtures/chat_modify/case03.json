@@ -1,0 +1,74 @@
+{
+  "instruction": "修改当前 Schema：工单状态 status 现在是文本输入，改成下拉选择，选项为：open（待处理）、doing（处理中）、done（已完成）；表单标题改成「运维工单表」。",
+  "currentSchema": {
+    "formKey": "ops_ticket",
+    "title": "工单表",
+    "columns": [
+      {
+        "dataIndex": "ticket_title",
+        "title": "工单标题",
+        "valueType": "text",
+        "formItemProps": {
+          "rules": [
+            {
+              "required": true,
+              "message": "请输入工单标题"
+            }
+          ]
+        }
+      },
+      {
+        "dataIndex": "status",
+        "title": "状态",
+        "valueType": "text"
+      },
+      {
+        "dataIndex": "assignee",
+        "title": "处理人",
+        "valueType": "text",
+        "hideInSearch": true
+      }
+    ]
+  },
+  "expected": {
+    "formKey": "ops_ticket",
+    "title": "运维工单表",
+    "columns": [
+      {
+        "dataIndex": "ticket_title",
+        "title": "工单标题",
+        "valueType": "text",
+        "formItemProps": {
+          "rules": [
+            {
+              "required": true,
+              "message": "请输入工单标题"
+            }
+          ]
+        }
+      },
+      {
+        "dataIndex": "status",
+        "title": "状态",
+        "valueType": "select",
+        "valueEnum": {
+          "open": {
+            "text": "待处理"
+          },
+          "doing": {
+            "text": "处理中"
+          },
+          "done": {
+            "text": "已完成"
+          }
+        }
+      },
+      {
+        "dataIndex": "assignee",
+        "title": "处理人",
+        "valueType": "text",
+        "hideInSearch": true
+      }
+    ]
+  }
+}
