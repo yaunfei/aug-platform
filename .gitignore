@@ -1,0 +1,113 @@
+# ============================================================
+# AI 驱动 Schema 表单平台 — 生产级 .gitignore
+# ============================================================
+
+# ---------- 密钥与本地配置 ----------
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.jks
+secrets/
+credentials.json
+
+# ---------- 操作系统 / IDE ----------
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json.example
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+
+# ---------- Python / uv ----------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+env/
+.python-version
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+*.egg-info/
+.eggs/
+build/
+dist/
+pip-wheel-metadata/
+server/.venv/
+server/.pytest_cache/
+
+# ---------- Node / pnpm / Umi ----------
+node_modules/
+.pnpm-store/
+pnpm-debug.log*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+web/.umi/
+web/.umi-production/
+web/.umi-test/
+web/dist/
+web/.cache/
+web/coverage/
+web/.eslintcache
+web/.stylelintcache
+*.tsbuildinfo
+.eslintcache
+
+# ---------- Java / Maven ----------
+java-provider/**/target/
+java-provider/**/.mvn/timing.properties
+*.class
+*.log
+hs_err_pid*
+replay_pid*
+.mvn/wrapper/maven-wrapper.jar
+
+# ---------- 运行时数据与上传 ----------
+server/uploads/
+uploads/
+pgdata/
+data/
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+*.log
+logs/
+server/logs/
+
+# ---------- 会话/工具产生的临时文件 ----------
+.uploads/
+tmp/
+.cache/
+*.tmp
+*.bak
+*.orig
+*.rej
+
+# ---------- 容器与部署本地覆盖 ----------
+docker-compose.override.yml
+deploy/*.local.conf
